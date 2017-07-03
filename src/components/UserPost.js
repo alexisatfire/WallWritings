@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import ProfilePic from './ProfilePic';
 
 class UserPost extends Component {
-
+ 
   constructor() {
     super();
     this.state = {
       editing: false
     }
   }
- 
+
   edit = () => {
     this.setState({editing: true});
   }

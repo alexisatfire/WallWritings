@@ -7,7 +7,6 @@ import UserPost from './components/UserPost';
 
 ReactDOM.render(
   <div>
-
-  <UserPost>asdasd</UserPost>
+    <App />
   </div>,
    document.getElementById('root'));

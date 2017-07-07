@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import ProfilePic from './ProfilePic';
 
 class UserPost extends Component {
- 
+
   constructor() {
     super();
     this.state = {
-      editing: false
+      editing: true,
     }
   }
 
@@ -15,15 +15,17 @@ class UserPost extends Component {
   }
 
   post = () => {
-    console.log('zalupa');
+    var userText = this.refs.newText.value;
     this.setState({editing: false});
   }
+
+
 
   renderForm = () => {
     return(
       <div className="commentContainer">
-        <textarea defaultValue={this.props.children}></textarea>
-        <button onClick={this.post} className="button-posted">Post</button>
+          <textarea ref="newText" defaultValue={this.props.children}></textarea><br />
+          <button onClick={this.post} className="button-posted">Post</button>
       </div>
     );
   }
@@ -31,21 +33,13 @@ class UserPost extends Component {
   renderMessage = () => {
     return(
       <div className="commentContainer">
-        <div className="commentText">{this.props.children}</div>
+        <div className="commentText" >{this.refs.newText.value}</div>
         <button onClick={this.edit}>Edit</button>
       </div>
     );
   }
 
   render() {
-    // var editm;
-    // if(this.state.editing){
-    //   editm = 'zala'
-    // } else {
-    //   editm = 'zzzzz'
-    // }
-    // return this.renderMessage();
-    //
     if(this.state.editing){
       return this.renderForm();
     } else {

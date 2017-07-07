@@ -15,7 +15,6 @@ class UserPost extends Component {
   }
 
   post = () => {
-    var userText = this.refs.newText.value;
     this.setState({editing: false});
   }
 

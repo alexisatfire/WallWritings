@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
-import UserPost from './components/UserPost';
 
 class App extends Component {
 
@@ -12,9 +10,8 @@ class App extends Component {
   }
 
   addAction = () => {
-    this.setState({somearray: this.state.somearray.concat(<UserPost>default text</UserPost>)});
-    console.log(this.somearray);
-  }
+    this.setState({ somearray: this.state.somearray.concat(<UserPost>default text</UserPost>)});
+    }
 
   render() {
     return (

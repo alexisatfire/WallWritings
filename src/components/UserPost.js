@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ProfilePic from './ProfilePic';
 
 class UserPost extends Component {
 
@@ -23,7 +22,7 @@ class UserPost extends Component {
   renderForm = () => {
     return(
       <div className="commentContainer">
-          <textarea ref="newText" defaultValue={this.props.children}></textarea><br />
+          <textarea ref="newText"></textarea><br />
           <button onClick={this.post} className="button-posted">Post</button>
       </div>
     );

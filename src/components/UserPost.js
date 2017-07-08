@@ -6,43 +6,37 @@ class UserPost extends Component {
     super();
     this.state = {
       editing: true,
-    }
+    };
   }
 
   edit = () => {
-    this.setState({editing: true});
+    this.setState({ editing: true });
   }
 
-  post = () => {
-    this.setState({editing: false});
+  save = () => {
+    this.setState({ editing: false });
   }
 
+  renderForm = () => (
+    <div className="commentContainer">
+      <textarea ref={(c) => { this.newText = c; }} />
+      <br />
+      <button onClick={this.save} className="button-saved">Save</button>
+    </div>
+  )
 
-
-  renderForm = () => {
-    return(
-      <div className="commentContainer">
-          <textarea ref="newText"></textarea><br />
-          <button onClick={this.post} className="button-posted">Post</button>
-      </div>
-    );
-  }
-
-  renderMessage = () => {
-    return(
-      <div className="commentContainer">
-        <div className="commentText" >{this.refs.newText.value}</div>
-        <button onClick={this.edit}>Edit</button>
-      </div>
-    );
-  }
+  renderMessage = () => (
+    <div className="commentContainer">
+      <div className="commentText" >{this.newText.value}</div>
+      <button onClick={this.edit}>Edit</button>
+    </div>
+  )
 
   render() {
-    if(this.state.editing){
+    if (this.state.editing) {
       return this.renderForm();
-    } else {
-      return this.renderMessage();
     }
+    return this.renderMessage();
   }
 }
 

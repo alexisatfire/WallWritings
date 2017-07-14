@@ -17,11 +17,14 @@ class UserPost extends Component {
     this.setState({ editing: false });
   }
 
+
+
   renderForm = () => (
     <div className="commentContainer">
       <textarea ref={(c) => { this.newText = c; }} />
       <br />
       <button onClick={this.save} className="button-saved">Save</button>
+
     </div>
   )
 

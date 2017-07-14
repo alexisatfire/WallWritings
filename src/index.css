@@ -13,6 +13,25 @@ body {
 #pic:hover {
   cursor: pointer;
 }
- #inputButton {
+
+#inputButton {
    display: none;
+}
+
+.rotate {
+  transform: rotate(-90deg);
+}
+
+.more-rotate {
+  transform: rotate(180deg);
+}
+
+.userEntry {
+   display: inline-block;
+   width: 300px;
  }
+
+ul {
+  list-style-type: none;
+
+}

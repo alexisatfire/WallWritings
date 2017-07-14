@@ -6,7 +6,8 @@ class UploadImg extends Component {
     super(props);
     this.state = {
       file: '',
-      imagePreviewUrl: ''
+      imagePreviewUrl: '',
+      rotating: 'rotate',
     };
     this.handleImageChange = this.handleImageChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,24 +36,40 @@ class UploadImg extends Component {
 
   }
 
+  rotate = () => {
+    //do rotation for all 4 positions
+    if(this.state.className === 'rotate'){
+      this.setState({ className: "more-rotate"});
+    } else {
+      this.setState({ className: "rotate" });
+    }
+    console.log(this.state.className);
+  }
+
   render() {
     let {imagePreviewUrl} = this.state;
     let imagePreview = null;
     if (imagePreviewUrl) {
-      imagePreview = (<img src={imagePreviewUrl} height="10%" width="10%"/>);
+      imagePreview = (
+        <div className={this.state.className}>
+          <img className="userEntry" src={imagePreviewUrl} height="10%" width="10%"/>
+        </div>
+      );
     } else {
-      imagePreview = <img src={defaultPic} height="10%" width="10%"/>
+      imagePreview = (
+        <div className={this.state.className}>
+          <img className="userEntry" src={defaultPic} height="10%" width="10%"/>
+        </div>
+        );
     }
 
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="userPics">
           <label id="pic">
             <input id="inputButton" type="file" onChange={this.handleImageChange} />
             {imagePreview}
           </label>
-        </form>
-
+          <button onClick={this.rotate}>Rotate</button>
       </div>
     )
   }

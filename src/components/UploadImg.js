@@ -7,7 +7,7 @@ class UploadImg extends Component {
     this.state = {
       file: '',
       imagePreviewUrl: '',
-      rotating: 'rotate',
+      rotating: 'rotate-left',
     };
     this.handleImageChange = this.handleImageChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,12 +38,11 @@ class UploadImg extends Component {
 
   rotate = () => {
     //do rotation for all 4 positions
-    if(this.state.className === 'rotate'){
-      this.setState({ className: "more-rotate"});
+    if(this.state.className === 'rotate-left'){
+      this.setState({ className: "rotate-right"});
     } else {
-      this.setState({ className: "rotate" });
+      this.setState({ className: "rotate-left" });
     }
-    console.log(this.state.className);
   }
 
   render() {
@@ -52,19 +51,19 @@ class UploadImg extends Component {
     if (imagePreviewUrl) {
       imagePreview = (
         <div className={this.state.className}>
-          <img className="userEntry" src={imagePreviewUrl} height="10%" width="10%"/>
+          <img className="userEntry" src={imagePreviewUrl} />
         </div>
       );
     } else {
       imagePreview = (
         <div className={this.state.className}>
-          <img className="userEntry" src={defaultPic} height="10%" width="10%"/>
+          <img className="userEntry" src={defaultPic} />
         </div>
         );
     }
 
     return (
-      <div className="userPics">
+      <div>
           <label id="pic">
             <input id="inputButton" type="file" onChange={this.handleImageChange} />
             {imagePreview}

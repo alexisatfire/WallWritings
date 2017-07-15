@@ -18,20 +18,21 @@ body {
    display: none;
 }
 
-.rotate {
-  transform: rotate(-90deg);
+.rotate-left {
+  transform: rotate(0deg);
 }
 
-.more-rotate {
-  transform: rotate(180deg);
+.rotate-right {
+  transform: rotate(-90deg);
 }
 
 .userEntry {
    display: inline-block;
-   width: 300px;
+   width: 200px;
+   max-height: 300px;
+   padding: 50px 50px 50px 0px;
  }
 
 ul {
   list-style-type: none;
-
 }

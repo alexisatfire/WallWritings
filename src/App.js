@@ -17,14 +17,18 @@ class App extends Component {
     });
   }
 
-  removeAction = () => {
-    // this.setState({ postArray: }) to be done late on.
+  removeAction = (i) => {
+    const x = this.state.postArray.length;
+    this.setState({ postArray: 
+      this.state.postArray.splice(i, x - 1),
+    });
   }
 
   render() {
     return (
       <div>
         <button onClick={this.addAction}>Add another message</button>
+        <button onClick={this.removeAction}>Remove message</button>
         <ul>
           {this.state.postArray.map((user, i) => (
             <li className="userEntry" key={i}><UploadImg />{user}</li>

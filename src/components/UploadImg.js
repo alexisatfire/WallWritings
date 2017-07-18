@@ -14,14 +14,14 @@ class UploadImg extends Component {
   }
 
   handleSubmit = (e) => {
-    e.defaultPrevented();
+    e.preventDefault();
     // TODO: do something with -> this.state.file
   }
 
   handleImageChange(e) {
-    e.defaultPrevented();
+    e.preventDefault();
 
-    const reader = new FileReader();
+    const reader = new FileReader(); /* global FileReader */
     const file = e.target.files[0];
 
     reader.onloadend = () => {

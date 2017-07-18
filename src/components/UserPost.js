@@ -6,6 +6,7 @@ class UserPost extends Component {
     super();
     this.state = {
       editing: true,
+      newText3: '',
     };
   }
 
@@ -17,10 +18,25 @@ class UserPost extends Component {
     this.setState({ editing: false });
   }
 
-
+  renderBreak = () => {
+    const userIn = this.newText.value;
+    let stringToSplit = [];
+    stringToSplit = userIn.split('');
+    let newText2 = '';
+    for (let i = 0; i < stringToSplit.length; i += 1) {
+      if (stringToSplit[i].length > 30) {
+        newText2 = newText2 + stringToSplit[i].slice(0, 15) + '- \n' + stringToSplit[i].slice(16, stringToSplit[i].length) + ' ';
+      } else if (i === 5) {
+        newText2 = newText2 + stringToSplit[i] + '\n ';
+      } else {
+        newText2 = newText2 + stringToSplit[i];
+      }
+    }
+    this.setState({ newText3: newText2 });
+  }
 
   renderForm = () => (
-    <div className="commentContainer">
+    <div className="commentContainer" onChange={this.renderBreak}>
       <textarea ref={(c) => { this.newText = c; }} />
       <br />
       <button onClick={this.save} className="button-saved">Save</button>
@@ -30,7 +46,7 @@ class UserPost extends Component {
 
   renderMessage = () => (
     <div className="commentContainer">
-      <div className="commentText" >{this.newText.value}</div>
+      <div className="commentText" >{this.state.newText3}</div>
       <button onClick={this.edit}>Edit</button>
     </div>
   )

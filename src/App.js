@@ -13,8 +13,12 @@ class App extends Component {
 
   addAction = () => {
     this.setState({ postArray:
-      this.state.postArray.concat(<UserPost>default text</UserPost>)
+      this.state.postArray.concat(<UserPost>default text</UserPost>),
     });
+  }
+
+  removeAction = () => {
+    // this.setState({ postArray: }) to be done late on.
   }
 
   render() {
@@ -22,9 +26,9 @@ class App extends Component {
       <div>
         <button onClick={this.addAction}>Add another message</button>
         <ul>
-        {this.state.postArray.map((user, i) => (
-          <li className="userEntry" key={i}><UploadImg />{user}</li> // eslint-disable-line react/no-array-index-key
-        ))}
+          {this.state.postArray.map((user, i) => (
+            <li className="userEntry" key={i}><UploadImg />{user}</li>
+          ))}
         </ul>
       </div>
     );

@@ -13,32 +13,31 @@ class UploadImg extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit = (e) => {
+    e.defaultPrevented();
     // TODO: do something with -> this.state.file
   }
 
   handleImageChange(e) {
-    e.preventDefault();
+    e.defaultPrevented();
 
-    let reader = new FileReader();
-    let file = e.target.files[0];
+    const reader = new FileReader();
+    const file = e.target.files[0];
 
     reader.onloadend = () => {
       this.setState({
         file: file,
-        imagePreviewUrl: reader.result
+        imagePreviewUrl: reader.result,
       });
+    };
+    if (file) {
+      reader.readAsDataURL(file);
     }
-    if(file){
-        reader.readAsDataURL(file)
-    }
-
   }
 
   rotate = () => {
-    //do rotation for all 4 positions
-    if(this.state.className === 'rotate-left'){
+    // do rotation for all 4 positions
+    if (this.state.className === 'rotate-left'){
       this.setState({ className: "rotate-right"});
     } else {
       this.setState({ className: "rotate-left" });
@@ -64,13 +63,13 @@ class UploadImg extends Component {
 
     return (
       <div>
-          <label id="pic">
-            <input id="inputButton" type="file" onChange={this.handleImageChange} />
-            {imagePreview}
-          </label>
-          <button onClick={this.rotate}>Rotate</button>
+        <label id="pic">
+          <input id="inputButton" type="file" onChange={this.handleImageChange} />
+          {imagePreview}
+        </label>
+        <button onClick={this.rotate}>Rotate</button>
       </div>
-    )
+    );
   }
 
 }

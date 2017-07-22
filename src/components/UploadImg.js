@@ -37,26 +37,30 @@ class UploadImg extends Component {
 
   rotate = () => {
     // do rotation for all 4 positions
-    if (this.state.className === 'rotate-left'){
-      this.setState({ className: "rotate-right"});
+    if (this.state.className === 'rotate-left') {
+      this.setState({ className: 'rotate-right' });
+    } else if (this.state.className === 'rotate-down') {
+      this.setState({ className: 'rotate-left' });
+    } else if (this.state.className === 'rotate-up') {
+      this.setState({ className: 'rotate-down' });
     } else {
-      this.setState({ className: "rotate-left" });
+      this.setState({ className: 'rotate-up' });
     }
   }
 
   render() {
-    let {imagePreviewUrl} = this.state;
+    const { imagePreviewUrl } = this.state;
     let imagePreview = null;
     if (imagePreviewUrl) {
       imagePreview = (
         <div className={this.state.className}>
-          <img className="userEntry" src={imagePreviewUrl} />
+          <img className="userPic" src={imagePreviewUrl} alt="" />
         </div>
       );
     } else {
       imagePreview = (
         <div className={this.state.className}>
-          <img className="userEntry" src={defaultPic} />
+          <img className="userPic" src={defaultPic} alt="" />
         </div>
         );
     }

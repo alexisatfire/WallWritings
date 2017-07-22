@@ -14,6 +14,11 @@ body {
   cursor: pointer;
 }
 
+#pic {
+  width: 200px;
+  max-height: 300px;
+}
+
 #inputButton {
    display: none;
 }
@@ -26,13 +31,31 @@ body {
   transform: rotate(-90deg);
 }
 
-.userEntry {
-   display: inline-block;
-   width: 200px;
-   max-height: 300px;
-   padding: 50px 50px 50px 0px;
+.rotate-down {
+  transform: rotate(180deg);
+}
+
+.rotate-up {
+  transform: rotate(90deg);
+}
+
+.userPic {
+  width: 300px;
+  max-height: 400px;
  }
 
-ul {
+.entrySet {
   list-style-type: none;
+}
+
+
+#userMessage {
+  float: left;
+  padding: 60px 60px 60px 60px;
+}
+
+.commentContainer {
+  max-width: 300px;
+  max-height: 100px;
+  position: fixed;  
 }

@@ -45,17 +45,18 @@ body {
  }
 
 .entrySet {
-  list-style-type: none;
+  list-style-type: none;  
 }
 
 
 #userMessage {
   float: left;
   padding: 60px 60px 60px 60px;
+   
 }
 
 .commentContainer {
   max-width: 300px;
-  max-height: 100px;
-  position: fixed;  
+  max-height: 100px; 
+  position: absolute;
 }
